@@ -1,5 +1,9 @@
 package com.zoothii.strategy.example1;
 
+import com.zoothii.strategy.example1.character.Character;
+import com.zoothii.strategy.example1.strategies.MountOnDragon;
+import com.zoothii.strategy.example1.strategies.MountOnHorse;
+
 public class Main {
 
     public static void main(String[] args) {

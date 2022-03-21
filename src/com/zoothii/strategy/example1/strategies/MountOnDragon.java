@@ -1,4 +1,4 @@
-package com.zoothii.strategy.example1;
+package com.zoothii.strategy.example1.strategies;
 
 public class MountOnDragon implements MountOnStrategy {
 
