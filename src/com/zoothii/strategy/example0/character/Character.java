@@ -1,6 +1,6 @@
-package com.zoothii.strategy.example1.character;
+package com.zoothii.strategy.example0.character;
 
-import com.zoothii.strategy.example1.strategies.MountOnStrategy;
+import com.zoothii.strategy.example0.strategies.MountOnStrategy;
 
 public class Character {
 

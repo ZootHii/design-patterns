@@ -1,6 +1,10 @@
-package com.zoothii.decorator.example0;
+package com.zoothii.decorator.example0.decorator;
+
+import com.zoothii.decorator.example0.notifier.Notifier;
 
 public class InstagramNotifierDecorator extends ApplicationNotifierDecorator {
+
+    private final String name = "Instagram";
 
     public InstagramNotifierDecorator(Notifier applicationNotifier) {
         super(applicationNotifier);
@@ -11,7 +15,7 @@ public class InstagramNotifierDecorator extends ApplicationNotifierDecorator {
         return instagramNotification(message);
     }
 
-    public String instagramNotification(String message) {
-        return "Instagram: " + message;
+    private String instagramNotification(String message) {
+        return name + ": " + message;
     }
 }

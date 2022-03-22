@@ -1,6 +1,6 @@
-package com.zoothii.strategy.example0.order;
+package com.zoothii.strategy.example1.order;
 
-import com.zoothii.strategy.example0.strategies.PayStrategy;
+import com.zoothii.strategy.example1.strategies.PayStrategy;
 
 /**
  * EN: Order class. Doesn't know the concrete payment method (strategy) user has

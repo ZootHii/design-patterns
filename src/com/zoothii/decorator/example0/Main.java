@@ -1,5 +1,11 @@
 package com.zoothii.decorator.example0;
 
+import com.zoothii.decorator.example0.decorator.FacebookNotifierDecorator;
+import com.zoothii.decorator.example0.decorator.InstagramNotifierDecorator;
+import com.zoothii.decorator.example0.decorator.WhatsappNotifierDecorator;
+import com.zoothii.decorator.example0.notifier.ApplicationNotifier;
+import com.zoothii.decorator.example0.notifier.Notifier;
+
 public class Main {
 
     public static void main(String[] args) {

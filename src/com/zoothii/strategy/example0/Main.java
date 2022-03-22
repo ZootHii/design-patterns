@@ -1,88 +1,40 @@
 package com.zoothii.strategy.example0;
 
-import com.zoothii.observer.example0.listeners.EmailNotificationListener;
-import com.zoothii.observer.example0.listeners.PhoneNotificationListener;
-import com.zoothii.observer.example0.topics.Earthquake;
-import com.zoothii.observer.example0.topics.Party;
-import com.zoothii.strategy.example0.order.Order;
-import com.zoothii.strategy.example0.strategies.PayByCreditCard;
-import com.zoothii.strategy.example0.strategies.PayByPayPal;
-import com.zoothii.strategy.example0.strategies.PayStrategy;
+import com.zoothii.strategy.example0.character.Character;
+import com.zoothii.strategy.example0.strategies.MountOnDragon;
+import com.zoothii.strategy.example0.strategies.MountOnHorse;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
-
-/**
- * EN: World first console e-commerce application.
- */
 public class Main {
 
-    private static final Map<Integer, Integer> priceOnProducts = new HashMap<>();
-    private static final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    private static final Order order = new Order();
-    private static PayStrategy strategy;
+    public static void main(String[] args) {
+        Character character = new Character(10);
+        System.out.println(character.getMountOn());
+//        System.out.println(character.getMountOnStrategy());
+        System.out.println(character.getBaseHitPoint());
+        System.out.println(character.getCalculatedHitPoint());
 
-    static {
-        priceOnProducts.put(1, 2200);
-        priceOnProducts.put(2, 1850);
-        priceOnProducts.put(3, 890);
-        priceOnProducts.put(4, 1100);
-    }
+        System.out.println("------------------------");
 
-    public static void main(String[] args) throws IOException {
-        while (!order.isClosed()) {
-            int cost;
+        character.mountOn(new MountOnDragon());
+        System.out.println(character.getMountOn());
+//        System.out.println(character.getMountOnStrategy());
+        System.out.println(character.getBaseHitPoint());
+        System.out.println(character.getCalculatedHitPoint());
 
-            String continueChoice;
-            do {
-                System.out.print("Please, select a product:" + "\n" +
-                        "1 - GPU - 2200$" + "\n" +
-                        "2 - CPU - 1850$" + "\n" +
-                        "3 - HDD - 890$" + "\n" +
-                        "4 - RAM - 1100$" + "\n");
-                int choice = Integer.parseInt(reader.readLine());
-                cost = priceOnProducts.get(choice);
-                System.out.print("Count: ");
-                int count = Integer.parseInt(reader.readLine());
-                order.setTotalCost(cost * count);
-                System.out.print("Do you wish to continue selecting products? Y/N: ");
-                continueChoice = reader.readLine();
-            } while (continueChoice.equalsIgnoreCase("Y"));
+        System.out.println("------------------------");
 
-            if (strategy == null) {
-                System.out.println("Please, select a payment method:" + "\n" +
-                        "1 - PalPay" + "\n" +
-                        "2 - Credit Card");
-                String paymentMethod = reader.readLine();
+        var horse = new MountOnHorse();
+        character.mountOn(horse);
+        character.mountOn(horse);
+        System.out.println(character.getMountOn());
+//        System.out.println(character.getMountOnStrategy());
+        System.out.println(character.getBaseHitPoint());
+        System.out.println(character.getCalculatedHitPoint());
+        character.mountOff(horse);
+        System.out.println(character.getMountOn());
+//        System.out.println(character.getMountOnStrategy());
+        System.out.println(character.getBaseHitPoint());
+        System.out.println(character.getCalculatedHitPoint());
 
-                // EN: Client creates different strategies based on input from
-                // user, application configuration, etc.
-                if (paymentMethod.equals("1")) {
-                    strategy = new PayByPayPal();
-                } else {
-                    strategy = new PayByCreditCard();
-                }
-            }
-
-            // EN: Order object delegates gathering payment data to strategy
-            // object, since only strategies know what data they need to
-            // process a payment.
-            order.processOrder(strategy);
-
-            System.out.print("Pay " + order.getTotalCost() + "$ or Continue shopping? P/C: ");
-            String proceed = reader.readLine();
-            if (proceed.equalsIgnoreCase("P")) {
-                // EN: Finally, strategy handles the payment.
-                if (strategy.pay(order.getTotalCost())) {
-                    System.out.println("Payment has been successful.");
-                } else {
-                    System.out.println("FAIL! Please, check your data.");
-                }
-                order.setClosed();
-            }
-        }
     }
 }

@@ -1,4 +1,4 @@
-package com.zoothii.decorator.example0;
+package com.zoothii.decorator.example0.notifier;
 
 public interface Notifier {
 

@@ -1,4 +1,4 @@
-package com.zoothii.strategy.example0.strategies;
+package com.zoothii.strategy.example1.strategies;
 
 public interface PayStrategy {
 

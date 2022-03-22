@@ -2,7 +2,6 @@ package com.zoothii.observer.example0.topics;
 
 import com.zoothii.observer.example0.publisher.EventManager;
 
-
 public class Earthquake {
 
     public EventManager events;
@@ -11,9 +10,9 @@ public class Earthquake {
         this.events = new EventManager("earthquake-near", "earthquake-take-action");
     }
 
-    public void notifyAllEvents(){
-        events.notify();
-    }
+//    public void notifyAllEvents() {
+//        events.notify();
+//    }
 
     public void earthquakeNear(String message) {
         events.notify("earthquake-near", message);

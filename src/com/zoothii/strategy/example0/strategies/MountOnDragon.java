@@ -1,6 +1,8 @@
-package com.zoothii.strategy.example1.strategies;
+package com.zoothii.strategy.example0.strategies;
 
 public class MountOnDragon implements MountOnStrategy {
+
+    private final String name = "Dragon";
 
     @Override
     public int calculateHitPoint(int baseHitPoint) {
@@ -9,6 +11,6 @@ public class MountOnDragon implements MountOnStrategy {
 
     @Override
     public String getName() {
-        return "Dragon";
+        return name;
     }
 }

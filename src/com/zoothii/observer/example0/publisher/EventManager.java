@@ -6,7 +6,7 @@ import java.util.*;
 
 public class EventManager {
 
-    Map<String, List<EventListener>> eventListeners = new HashMap<>();
+    private final Map<String, List<EventListener>> eventListeners = new HashMap<>();
 
     public EventManager(String... eventTypes) {
         for (String eventType : eventTypes) {

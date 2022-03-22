@@ -1,4 +1,4 @@
-package com.zoothii.strategy.example1.strategies;
+package com.zoothii.strategy.example0.strategies;
 
 public interface MountOnStrategy {
 

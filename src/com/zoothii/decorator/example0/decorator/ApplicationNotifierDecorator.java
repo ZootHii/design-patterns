@@ -1,4 +1,6 @@
-package com.zoothii.decorator.example0;
+package com.zoothii.decorator.example0.decorator;
+
+import com.zoothii.decorator.example0.notifier.Notifier;
 
 public abstract class ApplicationNotifierDecorator implements Notifier {
 
